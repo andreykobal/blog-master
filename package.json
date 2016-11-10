@@ -6,7 +6,7 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --progress --color --watch & json-server db/db.json"
+    "start": "webpack-dev-server --progress --color --watch & json-server src/db/db.json"
   },
   "author": "Adam Horton",
   "license": "BSD-2-Clause",

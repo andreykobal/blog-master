@@ -7,10 +7,10 @@ module.exports = {
 		'webpack-dev-server/client?http://localhost:8080', // WebpackDevServer host and port
 		'webpack/hot/only-dev-server',
 		'babel-polyfill',
-		'./js/app' // Your appʼs entry point
+		'./src/js/app' // Your appʼs entry point
     ],
     output: {
-        filename: "js/bundle.js"
+        filename: "dist/bundle.js"
     },
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
@@ -31,7 +31,7 @@ module.exports = {
 		extensions: ['', '.js', '.json', '.jsx', '.less'],
 		alias: {
 			// pretty useful to have a starting point in nested modules
-			'appRoot': path.join(__dirname, 'js'),
+			'appRoot': path.join(__dirname, 'src/js'),
 			'vendor': 'appRoot/vendor'
 		}
 	},
@@ -43,7 +43,7 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				include: [
-					path.join(__dirname, 'js'), // files to apply this loader to
+					path.join(__dirname, 'src/js'), // files to apply this loader to
 					path.join(__dirname, 'node_modules/reflux-core')
 				],
 				// http://jamesknelson.com/using-es6-in-the-browser-with-babel-6-and-webpack/
