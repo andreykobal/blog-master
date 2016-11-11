@@ -1,17 +1,18 @@
-require('normalize.css/normalize.css');
+require('styles/vendor/bootstrap.css');
+require("font-awesome-webpack");
 require('styles/App.scss');
 
 import React from 'react';
+import ReactDom from 'react-dom';
+import { Router, Route, IndexRoute } from 'react-router';
+import AppHeader from './AppHeader'
 
-let yeomanImage = require('../images/yeoman.png');
 
 class AppComponent extends React.Component {
   render() {
     return (
-      <div className="index">
-        <img src={yeomanImage} alt="Yeoman Generator" />
-        <button className="button button--action button--inline">Test</button>
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
+      <div className="container-fluid">
+        <AppHeader />
       </div>
     );
   }
@@ -19,5 +20,11 @@ class AppComponent extends React.Component {
 
 AppComponent.defaultProps = {
 };
+
+AppHeader.displayName = 'AppHeader';
+
+// Uncomment properties you need
+// AppHeaderComponent.propTypes = {};
+// AppHeaderComponent.defaultProps = {};
 
 export default AppComponent;

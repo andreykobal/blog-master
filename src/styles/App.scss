@@ -2,66 +2,8 @@
    Author's custom styles
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Slab:300|Roboto:300,500&subset=cyrillic');
-
-$open-sans: 'Open Sans', sans-serif;
-$roboto: 'Roboto', sans-serif;
-$roboto-slab: 'Roboto Slab', serif;
-$line-height: 30px;
-
-$light-gray: #F9F9FC;
-$green-midnight: #006F72;
-$green-emerald: #13BABE; /* #00B9BE */
-$green-action: #0ACB63;
-$red-alert: #FF7000;
-$red-desert: #E84C0C;
-$dark-black: #222222;
-$white: #FFFFFF;
-
-$cubic-bezier: ease-in-out;
-
-/* IMG URL */
-$avatar-default: url('../images/avatar-default.png');
-$button-texture: url('../images/button-texture.png');
-
-$logo-small: url('../images/logo/logo--small.png');
-$logo-medium: url('../images/logo/logo--medium.png');
-$logo-blog: url('../images/logo/logo--blog.png');
-
-$icon-like: url('../images/icon/like.png');
-$icon-like-h: url('../images/icon/like-h.png');
-$icon-like-a: url('../images/icon/like-a.png');
-
-$icon-bookmark: url('../images/icon/bookmark.png');
-$icon-bookmark-h: url('../images/icon/bookmark-h.png');
-$icon-bookmark-a: url('../images/icon/bookmark-a.png');
-
-$icon-access-default: url('../images/icon/access-default.png');
-$icon-access-blog: url('../images/icon/access-blog.png');
-$icon-access-ratio: url('../images/icon/access-ratio.png');
-
-$icon-share: url('../images/icon/share.png');
-
-$icon-more: url('../images/icon/more.png');
-
-$icon-share-facebook: url('../images/social/facebook.png');
-$icon-share-facebook-h: url('../images/social/facebook-h.png');
-$icon-share-facebook-a: url('../images/social/facebook-a.png');
-
-$icon-share-twitter: url('../images/social/twitter.png');
-$icon-share-twitter-h: url('../images/social/twitter-h.png');
-$icon-share-twitter-a: url('../images/social/twitter-a.png');
-
-$icon-share-vk: url('../images/social/vk.png');
-$icon-share-vk-h: url('../images/social/vk-h.png');
-$icon-share-vk-a: url('../images/social/vk-a.png');
-
-$icon-share-pinterest: url('../images/social/pinterest.png');
-$icon-share-pinterest-h: url('../images/social/pinterest-h.png');
-$icon-share-pinterest-a: url('../images/social/pinterest-a.png');
-
-$icon-share-google: url('../images/social/google.png');
-$icon-share-google-h: url('../images/social/google-h.png');
-$icon-share-google-a: url('../images/social/google-a.png');
+@import 'Variables';
+@import 'views/AppHeader';
 
 * {
   transition: 0.22s $cubic-bezier;
@@ -82,7 +24,9 @@ html, body {
   font-family: $roboto;
   color: $dark-black;
   transform: perspective(0) scale(1.0);
-   -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+  padding: 0;
+  margin: 0;
 }
 body:after {
   position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
@@ -252,7 +196,9 @@ blockquote {
   }
 }
 /* BASIC */
-.container-fluid, .container, .row, .row-fluid,
+.container-fluid, .container {
+}
+.row, .row-fluid,
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4,
 .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9,
 .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
@@ -306,11 +252,16 @@ ul, ol {
   font-weight: 500;
   font-size: 13px;
   display: block;
+  margin: auto;
   width: auto;
+  width: 133px;
   max-width: 100%;
   height: 33px;
-  padding: 4px 44px;
-  margin: 11px auto;
+  max-height: 33px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 0;
+  padding-right: 0;
   border: 1px solid $green-emerald;
   border-radius: 22px;
   background: $green-emerald;
@@ -323,8 +274,8 @@ ul, ol {
     color: white;
   }
   &--nav {
-    color: darken($green-action, 5%);
-    border-color: darken($green-action, 5%);
+    color: $green-emerald;
+    border-color: $green-emerald;
     background: none;
   }
   &--big {
@@ -399,8 +350,8 @@ ul, ol {
   &--nav:hover,
   &--nav:focus,
   &--nav:active {
-    color: darken($green-action, 10%);
-    border-color: darken($green-action, 10%);
+    color: darken($green-action, 5%);
+    border-color: darken($green-action, 5%);
     background: none;
   }
   &--primary:hover,
@@ -573,137 +524,6 @@ ul, ol {
       background: $icon-share-pinterest-a no-repeat center;
       background-size: contain;
     }
-  }
-
-}
-/* PRIMARY NAVIGATION */
-.header {
-  width: 100%;
-  max-width: 100%;
-  background: $white;
-  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .15);
-  padding: 22px;
-
-  .avatar--default {
-    display: inline-block;
-    width: 44px;
-    height: 44px;
-    background: $avatar-default;
-    background-size: 100%;
-  }
-  .logo {
-    margin: 0;
-    display: inline-block;
-
-    &.logo--small {
-      width: 44px;
-      height: 44px;
-      background: $logo-small no-repeat center;
-      background-size: 80%;
-    }
-    &.logo--medium {
-      width: 122px;
-      height: 55px;
-      background: $logo-medium;
-      background-size: 100%;
-      margin-bottom: 7px;
-    }
-    &.logo--blog {
-      width: 74px;
-      height: 22px;
-      background: $logo-blog;
-      background-size: 100%;
-      margin-bottom: 8px;
-    }
-    &.logo__separator {
-      height: 33px;
-      width: 2px;
-      background-color: darken($light-gray, 10%);
-      margin-left: -5px;
-      margin-right: 5px;
-      margin-bottom: 4px;
-    }
-  }
-  nav ul {
-    padding-left: 0;
-  }
-  nav ul {
-    &.dropdown {
-      display: inline-block;
-      margin: 0;
-    }
-    &.dropdown li {
-      position: relative;
-    }
-    &.dropdown-inside li {
-      display: block;
-    }
-    &.dropdown-inside {
-      position: absolute;
-      z-index: -10;
-      background: $white;
-      border: 1px solid darken($light-gray, 5%);
-      -webkit-border-radius: 4px;
-      border-radius: 4px;
-      top: 44px;
-      padding: 22px 33px;
-      margin-left: -77px;
-      opacity: 0;
-      text-align: left;
-      width: 199px;
-      transition: 1s;
-    }
-    &.dropdown li.dropdown-top:hover>.dropdown-inside {
-      z-index: 10;
-      opacity: 1;
-    }
-    &.dropdown-inside::before, &.dropdown-inside::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-color: transparent;
-      border-top: 0;
-    }
-    &.dropdown-inside::before {
-      top: -12px;
-      left: 50%;
-      border-bottom-color: darken($light-gray, 5%);
-      border-width: 12px;
-      margin-left: -13px;
-    }
-    &.dropdown-inside::after {
-      top: -11px;
-      left: 50%;
-      border-bottom-color: $white;
-      border-width: 11px;
-      margin-left: -12px
-    }
-    li {
-      list-style: none;
-      display: inline-block;
-      margin-left: 6px;
-      margin-right: 5px;
-      color: darken($green-action, 5%);
-    }
-    li a {
-      color: darken($green-action, 5%);
-    }
-    li:hover, li:hover>a {
-      color: darken($green-action, 10%);
-    }
-    li i {
-      font-size: 12px;
-    }
-  }
-}
-.header--double {
-  nav ul li a {
-    color: darken($green-emerald, 5%);
-  }
-  nav ul li:hover,nav ul li:hover>a {
-    color: darken($green-emerald, 10%);
   }
 }
 /* INPUT */
